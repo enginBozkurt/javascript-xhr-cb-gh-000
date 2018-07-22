@@ -5,3 +5,9 @@ function showRepositories(event, data) {
   document.getElementById('repositories').innerHTML = repoList; // list of repos
 }
 
+function getRepositories() {
+  const req = new XMLHttpRequest();
+  req.addEventListener('load', showRepositories);
+  req.open('GET', 'https://api.github.com/users/minidelta66/repos');
+  req.send();
+}
